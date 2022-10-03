@@ -1,4 +1,4 @@
-# Help contribute to Owncast!
+# Help contribute to IPEMIS STUDIO!
 
 Owncast is a growing open source project that is giving freedom, flexibility and fun to live streamers.
 And while we have a small team of kind, talented and thoughtful volunteers, we have gaps in our skillset that we’d love to fill so we can get even better at building tools that make a difference for people.

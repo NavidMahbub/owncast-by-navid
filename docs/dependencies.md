@@ -29,7 +29,7 @@ Owncast Dependencies
 - ID string generator https://github.com/teris-io/shortid
 - Markdown parser https://github.com/yuin/goldmark
 
-# Owncast Admin
+# IPEMIS STUDIO
 
 - React component library https://reactjs.org/
 - Ant design https://ant.design

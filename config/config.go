@@ -51,7 +51,7 @@ func GetCommit() string {
 
 // DefaultForbiddenUsernames are a list of usernames forbidden from being used in chat.
 var DefaultForbiddenUsernames = []string{
-	"owncast", "operator", "admin", "system",
+	"operator", "admin", "system",
 }
 
 // MaxSocketPayloadSize is the maximum payload we will allow to to be received via the chat socket.
@@ -63,5 +63,5 @@ func GetReleaseString() string {
 	buildPlatform := BuildPlatform
 	gitCommit := GetCommit()
 
-	return fmt.Sprintf("Owncast v%s-%s (%s)", versionNumber, buildPlatform, gitCommit)
+	return fmt.Sprintf("IPEMIS STUDIO v%s-%s (%s)", versionNumber, buildPlatform, gitCommit)
 }
