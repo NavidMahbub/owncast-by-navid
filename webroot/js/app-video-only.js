@@ -267,6 +267,7 @@ export default class VideoOnly extends Component {
             preload="auto"
             controls
             playsinline
+						autoplay
           ></video>
           ${poster}
         </div>

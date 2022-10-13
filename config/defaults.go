@@ -38,14 +38,14 @@ type Defaults struct {
 // GetDefaults will return default configuration values.
 func GetDefaults() Defaults {
 	return Defaults{
-		Name:                 "Owncast",
-		Title:                "My Owncast Server",
+		Name:                 "IPEMIS STUDIO",
+		Title:                "Your IPEMIS STUDIO Server",
 		Summary:              "This is brief summary of whom you are or what your stream is. You can edit this description in the admin.",
 		ServerWelcomeMessage: "",
 		Logo:                 "logo.svg",
 		Tags: []string{
-			"owncast",
-			"streaming",
+			"DPE",
+			"IPEMIS",
 		},
 
 		PageBodyContent: "# This is your page content that can be edited from the admin.",
