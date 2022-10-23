@@ -64,10 +64,28 @@ func GetDefaults() Defaults {
 
 		StreamVariants: []models.StreamOutputVariant{
 			{
-				IsAudioPassthrough: true,
-				VideoBitrate:       1200,
-				Framerate:          24,
-				CPUUsageLevel:      2,
+				Name:          "360p",
+				VideoBitrate:  1200,
+				ScaledWidth:   360,
+				ScaledHeight:  360,
+				Framerate:     24,
+				CPUUsageLevel: 2,
+			},
+			{
+				Name:          "720p",
+				VideoBitrate:  3000,
+				ScaledWidth:   1280,
+				ScaledHeight:  720,
+				Framerate:     24,
+				CPUUsageLevel: 2,
+			},
+			{
+				Name:          "1080p60",
+				VideoBitrate:  4000,
+				ScaledWidth:   1920,
+				ScaledHeight:  1080,
+				Framerate:     30,
+				CPUUsageLevel: 2,
 			},
 		},
 
