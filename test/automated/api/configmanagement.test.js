@@ -104,7 +104,7 @@ test('verify updated config values', async (done) => {
 test('stream details are correct', (done) => {
   request
     .get('/api/admin/status')
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200)
     .then((res) => {
       expect(res.body.broadcaster.streamDetails.width).toBe(320);
@@ -121,7 +121,7 @@ test('stream details are correct', (done) => {
 test('admin configuration is correct', (done) => {
   request
     .get('/api/admin/serverconfig')
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200)
     .then((res) => {
       expect(res.body.instanceDetails.name).toBe(serverName);
@@ -141,7 +141,7 @@ test('admin configuration is correct', (done) => {
       );
 
       expect(res.body.yp.enabled).toBe(false);
-      expect(res.body.streamKey).toBe('abc123');
+      expect(res.body.streamKey).toBe('ZHNpbm5vdmF0b3Jz');
 
       expect(res.body.s3.enabled).toBe(s3Config.enabled);
       expect(res.body.s3.endpoint).toBe(s3Config.endpoint);
@@ -170,7 +170,7 @@ async function sendConfigChangeRequest(endpoint, value) {
   const url = '/api/admin/config/' + endpoint;
   const res = await request
     .post(url)
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .send({ value: value })
     .expect(200);
 
@@ -182,7 +182,7 @@ async function sendConfigChangePayload(endpoint, payload) {
   const url = '/api/admin/config/' + endpoint;
   const res = await request
     .post(url)
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .send(payload)
     .expect(200);
 

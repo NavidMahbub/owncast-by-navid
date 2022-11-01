@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -26,7 +27,12 @@ var VersionNumber = StaticVersionNumber
 var WebServerPort = 8080
 
 // WebServerIP is the IP address to bind the web server to. All interfaces by default.
-var WebServerIP = "0.0.0.0"
+var WebServerIP = getBaseUrlFromEnv()
+
+func getBaseUrlFromEnv() string {
+	ip := os.Getenv("REMOTE_LEARNING_BASE_URL")
+	return ip
+}
 
 // InternalHLSListenerPort is the port for HLS writes that is used for this execution of the service.
 var InternalHLSListenerPort = "8927"

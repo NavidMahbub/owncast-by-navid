@@ -9107,7 +9107,7 @@
 				apiPath: "/key",
 				configPath: "",
 				maxLength: 255,
-				placeholder: "abc123",
+				placeholder: "ZHNpbm5vdmF0b3Jz",
 				label: "Stream Key",
 				tip: "Save this key somewhere safe, you will need it to stream or login to the admin dashboard!",
 				required: !0

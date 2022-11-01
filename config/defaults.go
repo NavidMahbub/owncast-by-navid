@@ -1,6 +1,7 @@
 package config
 
 import (
+	"os"
 	"time"
 
 	"github.com/owncast/owncast/models"
@@ -37,6 +38,9 @@ type Defaults struct {
 
 // GetDefaults will return default configuration values.
 func GetDefaults() Defaults {
+
+	baseUrl := os.Getenv("REMOTE_LEARNING_BASE_URL")
+
 	return Defaults{
 		Name:                 "IPEMIS STUDIO",
 		Title:                "Your IPEMIS STUDIO Server",
@@ -56,9 +60,9 @@ func GetDefaults() Defaults {
 		YPServer:  "https://directory.owncast.online",
 
 		WebServerPort:  8080,
-		WebServerIP:    "0.0.0.0",
+		WebServerIP:    baseUrl,
 		RTMPServerPort: 1935,
-		StreamKey:      "abc123",
+		StreamKey:      "ZHNpbm5vdmF0b3Jz",
 
 		ChatEstablishedUserModeTimeDuration: time.Minute * 15,
 
@@ -80,7 +84,7 @@ func GetDefaults() Defaults {
 				CPUUsageLevel: 2,
 			},
 			{
-				Name:          "1080p60",
+				Name:          "1080p",
 				VideoBitrate:  4000,
 				ScaledWidth:   1920,
 				ScaledHeight:  1080,

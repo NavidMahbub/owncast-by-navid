@@ -2,12 +2,12 @@
 
 # A recent version of ffmpeg is required for the loop of the provided videos
 # to repeat indefinitely.
-# Example: ./test/ocTestStream.sh ~/Downloads/*.mp4 rtmp://localhost/live/abc123
+# Example: ./test/ocTestStream.sh ~/Downloads/*.mp4 rtmp://localhost/live/ZHNpbm5vdmF0b3Jz
 
 if ! ([[ $1 ]])
 then
   echo "ocTestStream is used for sending pre-recorded content to a RTMP server."
-  echo "Will default to localhost with the stream key of abc123 if one isn't provided."
+  echo "Will default to localhost with the stream key of ZHNpbm5vdmF0b3Jz if one isn't provided."
   echo "./ocTestStream.sh *.mp4 [RTMPDESINATION]"
 exit
 fi
@@ -22,7 +22,7 @@ if [[ ${@: -1} == *"rtmp://"* ]]; then
   DESTINATION_HOST=${@: -1}
   FILE_COUNT=$( expr ${#} - 1 )
 else
-  DESTINATION_HOST="rtmp://localhost/live/abc123"
+  DESTINATION_HOST="rtmp://localhost/live/ZHNpbm5vdmF0b3Jz"
   array=( $@ )
   ARGS_LEN=${#array[@]}
   CONTENT=${array[@]:0:$ARGS_LEN}

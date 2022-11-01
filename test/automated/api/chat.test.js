@@ -24,7 +24,7 @@ test('can send a chat message', async (done) => {
 test('can fetch chat messages', async (done) => {
   const res = await request
     .get('/api/admin/chat/messages')
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
 
   const message = res.body.filter((m) => m.body === testMessage.body)[0];

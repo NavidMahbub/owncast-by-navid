@@ -5,14 +5,14 @@ set -e
 function start_stream() {
   # Start streaming the test file over RTMP to
   # the local owncast instance.
-  ffmpeg -hide_banner -loglevel panic -stream_loop -1 -re -i ../test.mp4 -vcodec libx264 -profile:v main -sc_threshold 0 -b:v 1300k -acodec copy -f flv rtmp://127.0.0.1/live/abc123 &
+  ffmpeg -hide_banner -loglevel panic -stream_loop -1 -re -i ../test.mp4 -vcodec libx264 -profile:v main -sc_threshold 0 -b:v 1300k -acodec copy -f flv rtmp://127.0.0.1/live/ZHNpbm5vdmF0b3Jz &
   STREAMING_CLIENT=$!
 }
 
 function update_storage_config() {
   echo "Configuring external storage to use ${S3_BUCKET}..."
 
-  # Hard coded to admin:abc123 for auth
+  # Hard coded to admin:ZHNpbm5vdmF0b3Jz for auth
   curl 'http://localhost:8080/api/admin/config/s3' \
   -H 'Authorization: Basic YWRtaW46YWJjMTIz' \
   --data-raw "{\"value\":{\"accessKey\":\"${S3_ACCESS_KEY}\",\"acl\":\"\",\"bucket\":\"${S3_BUCKET}\",\"enabled\":true,\"endpoint\":\"${S3_ENDPOINT}\",\"region\":\"${S3_REGION}\",\"secret\":\"${S3_SECRET}\",\"servingEndpoint\":\"\"}}"

@@ -22,7 +22,7 @@ test('create webhook', async (done) => {
 test('check webhooks', (done) => {
   request
     .get('/api/admin/webhooks')
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200)
     .then((res) => {
       expect(res.body).toHaveLength(1);
@@ -44,7 +44,7 @@ test('delete webhook', async (done) => {
 test('check that webhook was deleted', (done) => {
   request
     .get('/api/admin/webhooks')
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200)
     .then((res) => {
       expect(res.body).toHaveLength(0);
@@ -76,7 +76,7 @@ test('create access token', async (done) => {
 test('check access tokens', async (done) => {
   const res = await request
     .get('/api/admin/accesstokens')
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
   const tokenCheck = res.body.filter(
     (token) => token.accessToken === accessToken
@@ -156,7 +156,7 @@ test('delete access token', async (done) => {
 test('check token delete was successful', async (done) => {
   const res = await request
     .get('/api/admin/accesstokens')
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
   const tokenCheck = res.body.filter(
     (token) => token.accessToken === accessToken
@@ -169,7 +169,7 @@ async function sendIntegrationsChangePayload(endpoint, payload) {
   const url = '/api/admin/' + endpoint;
   const res = await request
     .post(url)
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .send(payload)
     .expect(200);
 

@@ -50,14 +50,14 @@ test('verify we can make API call to mark message as hidden', async (done) => {
 
 	const res = await request
 		.get('/api/admin/chat/messages')
-		.auth('admin', 'abc123')
+		.auth('admin', 'ZHNpbm5vdmF0b3Jz')
 		.expect(200);
 
 	const message = res.body[0];
 	messageId = message.id;
 	await request
 		.post('/api/admin/chat/messagevisibility')
-		.auth('admin', 'abc123')
+		.auth('admin', 'ZHNpbm5vdmF0b3Jz')
 		.send({ idArray: [messageId], visible: false })
 		.expect(200);
 });
@@ -68,7 +68,7 @@ test('verify message has become hidden', async (done) => {
 	const res = await request
 		.get('/api/admin/chat/messages')
 		.expect(200)
-		.auth('admin', 'abc123');
+		.auth('admin', 'ZHNpbm5vdmF0b3Jz');
 
 	const message = res.body.filter((obj) => {
 		return obj.id === messageId;
@@ -81,7 +81,7 @@ test('verify message has become hidden', async (done) => {
 test('can enable established chat user mode', async (done) => {
 	await request
 		.post('/api/admin/config/chat/establishedusermode')
-		.auth('admin', 'abc123')
+		.auth('admin', 'ZHNpbm5vdmF0b3Jz')
 		.send({ value: true })
 		.expect(200);
 	done();
@@ -98,7 +98,7 @@ test('verify rejected message is not in the chat feed', async (done) => {
 	const res = await request
 		.get('/api/admin/chat/messages')
 		.expect(200)
-		.auth('admin', 'abc123');
+		.auth('admin', 'ZHNpbm5vdmF0b3Jz');
 
 	const message = res.body.filter((obj) => {
 		return obj.body === establishedUserFailedChatMessage.body;
@@ -111,7 +111,7 @@ test('verify rejected message is not in the chat feed', async (done) => {
 test('can disable established chat user mode', async (done) => {
 	await request
 		.post('/api/admin/config/chat/establishedusermode')
-		.auth('admin', 'abc123')
+		.auth('admin', 'ZHNpbm5vdmF0b3Jz')
 		.send({ value: false })
 		.expect(200);
 	done();

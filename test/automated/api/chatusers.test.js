@@ -31,7 +31,7 @@ test('can set the user as moderator', async (done) => {
   await request
     .post('/api/admin/chat/users/setmoderator')
     .send({ userId: userId, isModerator: true })
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
   done();
 });
@@ -39,7 +39,7 @@ test('can set the user as moderator', async (done) => {
 test('verify user is a moderator', async (done) => {
   const response = await request
     .get('/api/admin/chat/users/moderators')
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
   const tokenCheck = response.body.filter((user) => user.id === userId);
   expect(tokenCheck).toHaveLength(1);
@@ -58,7 +58,7 @@ test('verify user list is populated', async (done) => {
   ws.on('open', async function open() {
     const response = await request
       .get('/api/admin/chat/clients')
-      .auth('admin', 'abc123')
+      .auth('admin', 'ZHNpbm5vdmF0b3Jz')
       .expect(200);
 
     expect(response.body.length).toBeGreaterThan(0);
@@ -96,7 +96,7 @@ test('can disable a user', async (done) => {
   await request
     .post('/api/admin/chat/users/setenabled')
     .send({ userId: userId, enabled: false })
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
 
   await new Promise((r) => setTimeout(r, 1500));
@@ -106,7 +106,7 @@ test('can disable a user', async (done) => {
 test('verify user is disabled', async (done) => {
   const response = await request
     .get('/api/admin/chat/users/disabled')
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
   const tokenCheck = response.body.filter((user) => user.id === userId);
   expect(tokenCheck).toHaveLength(1);
@@ -116,7 +116,7 @@ test('verify user is disabled', async (done) => {
 test('verify messages from user are hidden', async (done) => {
   const response = await request
     .get('/api/admin/chat/messages')
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
   const message = response.body.filter((obj) => {
     return obj.user.id === userId;
@@ -129,7 +129,7 @@ test('can re-enable a user', async (done) => {
   await request
     .post('/api/admin/chat/users/setenabled')
     .send({ userId: userId, enabled: true })
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
   done();
 });
@@ -137,7 +137,7 @@ test('can re-enable a user', async (done) => {
 test('verify user is enabled', async (done) => {
   const response = await request
     .get('/api/admin/chat/users/disabled')
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
   const tokenCheck = response.body.filter((user) => user.id === userId);
   expect(tokenCheck).toHaveLength(0);
@@ -149,7 +149,7 @@ test('ban an ip address', async (done) => {
   await request
     .post('/api/admin/chat/users/ipbans/create')
     .send({ value: localIPAddress })
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
   done();
 });
@@ -160,7 +160,7 @@ test('ban an ip address', async (done) => {
 test('verify IP address is blocked from the ban', async (done) => {
   const response = await request
     .get(`/api/admin/chat/users/ipbans`)
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
 
   expect(response.body).toHaveLength(1);
@@ -177,7 +177,7 @@ test('remove an ip address ban', async (done) => {
   await request
     .post('/api/admin/chat/users/ipbans/remove')
     .send({ value: localIPAddress })
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
   done();
 });
@@ -185,7 +185,7 @@ test('remove an ip address ban', async (done) => {
 test('verify IP address is no longer banned', async (done) => {
   const response = await request
     .get(`/api/admin/chat/users/ipbans`)
-    .auth('admin', 'abc123')
+    .auth('admin', 'ZHNpbm5vdmF0b3Jz')
     .expect(200);
 
   expect(response.body).toHaveLength(0);
